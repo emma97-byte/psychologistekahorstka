@@ -305,4 +305,376 @@
             margin-bottom: 12px;
         }
 
-        .service-
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-meta {
+            font-size: 0.85rem;
+            color: var(--tiffany-dark);
+            font-weight: 500;
+        }
+
+        /* Կապ և Ամրագրումներ (Contact & Booking) */
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .contact-details span.icon {
+            color: var(--tiffany);
+            font-weight: 600;
+        }
+
+        /* Ամրագրման ձև (Form) */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--tiffany);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        #booking-status {
+            display: none;
+            padding: 14px;
+            border-radius: 10px;
+            background-color: var(--tiffany-light);
+            color: var(--tiffany-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Ստորին հատված (Footer) */
+        footer {
+            border-top: 1px solid var(--border-light);
+            padding: 36px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Հարմարեցում փոքր էկրաններին (Responsive) */
+        @media (max-width: 860px) {
+            .about-grid,
+            .booking-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .booking-wrapper {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Նավիգացիա -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">Անի <span>Սարգսյան</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Մենյու">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Գլխավոր էջ</a></li>
+                <li><a href="#about">Հոգեբանի մասին</a></li>
+                <li><a href="#services">Ծառայություններ</a></li>
+                <li><a href="#booking" class="btn-nav">Կապ և ամրագրում</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. Գլխավոր էջ -->
+    <section id="home" class="hero">
+        <div class="container">
+            <span class="hero-tag">Անվտանգ և գաղտնի միջավայր</span>
+            <h1>Ներքին ներդաշնակության և ինքնաճանաչման ճանապարհը սկսվում է այստեղ</h1>
+            <p>Անհատական և զույգերի հոգեբանական խորհրդատվություն՝ ժամանակակից և գիտականորեն հիմնավորված մեթոդներով՝ առկա և առցանց ձևաչափերով։</p>
+            <a href="#booking" class="btn-primary">Ամրագրել խորհրդատվություն</a>
+        </div>
+    </section>
+
+    <!-- 2. Հոգեբանի մասին -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Հոգեբանի մասին</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-placeholder">
+                    <!-- Նկար ավելացնելու համար ջնջեք ստորև գրված տեքստը և բացեք <img> թեգը -->
+                    <!-- <img src="photo.jpg" alt="Հոգեբան Անի Սարգսյան"> -->
+                    <p>Այստեղ տեղադրեք ձեր լուսանկարը<br><small>(օրինակ՝ photo.jpg)</small></p>
+                </div>
+                <div class="about-content">
+                    <h3>Ողջույն, ես Անի Սարգսյանն եմ</h3>
+                    <p>Որպես կլինիկական հոգեբան և հոգեթերապևտ՝ իմ նպատակն է ստեղծել մի տարածք, որտեղ դուք կարող եք լինել անկեղծ՝ առանց քննադատության վախի։</p>
+                    <p>Աշխատանքումս համադրում եմ կոգնիտիվ-վարքաբանական թերապիայի (CBT) և հումանիստական հոգեբանության սկզբունքները՝ օգնելով հաղթահարել տագնապը, սթրեսը, հարաբերությունների ճգնաժամերը և գտնել սեփական ներքին ռեսուրսները։</p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <strong>7+ տարի</strong>
+                            <span>Մասնագիտական փորձ</span>
+                        </div>
+                        <div class="credential-item">
+                            <strong>ԵՊՀ Մագիստրոս</strong>
+                            <span>Կլինիկական հոգեբանություն</span>
+                        </div>
+                        <div class="credential-item">
+                            <strong>CBT / Անհատական</strong>
+                            <span>Հավաստագրված մասնագետ</span>
+                        </div>
+                        <div class="credential-item">
+                            <strong>100% Գաղտնի</strong>
+                            <span>Մասնագիտական էթիկա</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Ծառայություններ -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ծառայություններ</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Անհատական խորհրդատվություն</h3>
+                    <p>Աշխատանք տագնապային վիճակների, հուզական այրման, ցածր ինքնագնահատականի և կյանքի բարդ փոփոխությունների հաղթահարման ուղղությամբ։</p>
+                    <div class="service-meta">Տևողությունը՝ 50 րոպե</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">❖</div>
+                    <h3>Զույգերի թերապիա</h3>
+                    <p>Օգնություն հարաբերություններում առկա կոնֆլիկտների լուծման, փոխըմբռնման վերականգնման և առողջ հաղորդակցության կառուցման հարցում։</p>
+                    <div class="service-meta">Տևողությունը՝ 75 րոպե</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✧</div>
+                    <h3>Առցանց խորհրդատվություն</h3>
+                    <p>Ամբողջական հոգեբանական աջակցություն աշխարհի ցանկացած կետից՝ Zoom կամ Google Meet հարթակների միջոցով՝ ձեզ հարմար ժամին։</p>
+                    <div class="service-meta">Տևողությունը՝ 50 րոպե</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Կապ և ամրագրումներ -->
+    <section id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Կապ և ամրագրումներ</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="booking-wrapper">
+                <div class="contact-info">
+                    <h3>Գրանցվեք առաջին հանդիպմանը</h3>
+                    <p>Լրացրեք հայտը, և ես կկապվեմ ձեզ հետ աշխատանքային օրվա ընթացքում՝ հանդիպման վերջնական ժամը հաստատելու համար։</p>
+                    
+                    <ul class="contact-details">
+                        <li><span class="icon">📍</span> ք. Երևան, Աբովյան փողոց (կամ Առցանց)</li>
+                        <li><span class="icon">📞</span> +374 (00) 00-00-00 (WhatsApp / Telegram)</li>
+                        <li><span class="icon">✉️</span> info@psychologist-example.am</li>
+                        <li><span class="icon">🕒</span> Երկուշաբթի – Շաբաթ, 10:00 – 19:00</li>
+                    </ul>
+                </div>
+
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">Անուն Ազգանուն *</label>
+                        <input type="text" id="name" name="name" placeholder="Օրինակ՝ Արամ Պետրոսյան" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Հեռախոսահամար *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+374 XX XX XX XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Ծառայության տեսակը</label>
+                            <select id="service" name="service">
+                                <option value="Անհատական խորհրդատվություն">Անհատական խորհրդատվություն</option>
+                                <option value="Զույգերի թերապիա">Զույգերի թերապիա</option>
+                                <option value="Առցանց խորհրդատվություն">Առցանց խորհրդատվություն</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Նախընտրելի օր</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Նախընտրելի ժամ</label>
+                            <select id="time" name="time">
+                                <option value="Առավոտյան (10:00 - 13:00)">Առավոտյան (10:00 - 13:00)</option>
+                                <option value="Ցերեկային (13:00 - 16:00)">Ցերեկային (13:00 - 16:00)</option>
+                                <option value="Երեկոյան (16:00 - 19:00)">Երեկոյան (16:00 - 19:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Հավելյալ նշումներ (ըստ ցանկության)</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Կարող եք համառոտ նշել ձեր հարցը..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Ուղարկել հայտը</button>
+                    <div id="booking-status">Շնորհակալություն։ Ձեր ամրագրման հայտն ընդունված է, շուտով կապ կհաստատենք ձեզ հետ։</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ստորին հատված -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Անի Սարգսյան — Հոգեբան-խորհրդատու։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <!-- Ինտերակտիվության համար JavaScript -->
+    <script>
+        // Մոբայլ մենյուի բացում/փակում
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Հղման վրա սեղմելիս փակել մոբայլ մենյուն
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Ամրագրման ֆորմայի մշակում
+        const bookingForm = document.getElementById('bookingForm');
+        const bookingStatus = document.getElementById('booking-status');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            bookingStatus.style.display = 'block';
+            bookingForm.reset();
+            
+            setTimeout(() => {
+                bookingStatus.style.display = 'none';
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
