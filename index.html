@@ -1,1 +1,308 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Անի Սարգսյան | Հոգեբան-խորհրդատու</title>
+    <!-- Հայերեն գեղեցիկ տառատեսակ Google Fonts-ից -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Հիմնական գույներ և փոփոխականներ */
+        :root {
+            --tiffany: #0ABAB5;
+            --tiffany-dark: #089692;
+            --tiffany-light: #F0FAF9;
+            --white: #FFFFFF;
+            --text-dark: #2C3539;
+            --text-muted: #6C7A80;
+            --border-light: #E8ECEF;
+        }
 
+        /* Ընդհանուր կարգավորումներ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Armenian', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Վերնագիր և Նավիգացիա (Header) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--tiffany);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tiffany);
+        }
+
+        .btn-nav {
+            padding: 9px 20px;
+            background-color: var(--tiffany);
+            color: var(--white) !important;
+            border-radius: 50px;
+            font-weight: 500 !important;
+            transition: background-color 0.3s ease !important;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--tiffany-dark);
+        }
+
+        /* Մոբայլ մենյուի կոճակ */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+        }
+
+        /* Գլխավոր էջ (Hero Section) */
+        .hero {
+            padding: 160px 0 110px;
+            background: linear-gradient(180deg, var(--tiffany-light) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: var(--tiffany-dark);
+            background: rgba(10, 186, 181, 0.12);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            max-width: 750px;
+            margin: 0 auto 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 36px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 34px;
+            background-color: var(--tiffany);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--tiffany-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(10, 186, 181, 0.25);
+        }
+
+        /* Բաժինների ընդհանուր ոճ */
+        section {
+            padding: 95px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-line {
+            width: 50px;
+            height: 3px;
+            background-color: var(--tiffany);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Հոգեբանի մասին (About) */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            background-color: var(--tiffany-light);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--tiffany-dark);
+            border: 1px dashed var(--tiffany);
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Երբ նկար ավելացնեք, այս դասը կկիրառվի */
+        .about-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .credentials {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .credential-item strong {
+            display: block;
+            color: var(--tiffany-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .credential-item span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Ծառայություններ (Services) */
+        .services {
+            background-color: var(--tiffany-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(10, 186, 181, 0.12);
+            color: var(--tiffany);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-
