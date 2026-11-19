@@ -1,690 +1,567 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Էկա Հորստկա | Հոգեբան</title>
-    <!-- Հայերեն գեղեցիկ տառատեսակ Google Fonts-ից -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Noto+Serif+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    
-    <style>
-        /* Հիմնական գույներ և փոփոխականներ */
-        :root {
-    --tiffany: #023e8a;
-    --tiffany-dark: #089692;
-    --tiffany-light: #ADE8F4;
-    --white: #ADE8F4;
-    --text-dark: #2C3539;
-    --text-muted: #465B63;
-    --border-light: #8CCBD9;
-}
-
-        /* Ընդհանուր կարգավորումներ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-      body {
-    font-family: 'Noto Sans Armenian', sans-serif;
-    background-color: #ADE8F4;
-}
-
-/* Headings */
-h1, h2, h3, h4 {
-    font-family: 'Noto Serif Armenian', serif;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-}
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Վերնագիր և Նավիգացիա (Header) */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #ADE8F4;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 75px;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: var(--text-dark);
-        }
-
-        .logo span {
-            color: var(--tiffany);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--text-dark);
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--tiffany);
-        }
-
-        .btn-nav {
-            padding: 9px 20px;
-            background-color: var(--tiffany);
-            color: var(--white) !important;
-            border-radius: 50px;
-            font-weight: 500 !important;
-            transition: background-color 0.3s ease !important;
-        }
-
-        .btn-nav:hover {
-            background-color: var(--tiffany-dark);
-        }
-
-        /* Մոբայլ մենյուի կոճակ */
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-        }
-
-        /* Գլխավոր էջ (Hero Section) */
-        .hero {
-    padding: 160px 0 110px;
-    background: #ADE8F4;
-    text-align: center;
-}
-        .hero-tag {
-            display: inline-block;
-            color: var(--tiffany-dark);
-            background: rgba(10, 186, 181, 0.12);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            font-weight: 600;
-            line-height: 1.3;
-            max-width: 750px;
-            margin: 0 auto 20px;
-            color: var(--text-dark);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 36px;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 34px;
-            background-color: var(--tiffany);
-            color: var(--white);
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--tiffany-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(10, 186, 181, 0.25);
-        }
-
-        /* Բաժինների ընդհանուր ոճ */
-        section {
-            padding: 95px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .section-line {
-            width: 50px;
-            height: 3px;
-            background-color: var(--tiffany);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        
-        /* Հոգեբանի մասին (About) */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        
-.about-image-placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.about-image-placeholder img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-
-        /* Երբ նկար ավելացնեք, այս դասը կկիրառվի */
-        .about-image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
-        }
-
-        .about-content h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .about-content p {
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-        .credentials {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-light);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .credential-item strong {
-            display: block;
-            color: var(--tiffany-dark);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .credential-item span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Ծառայություններ (Services) */
-        .services {
-            background-color: var(--tiffany-light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 36px 28px;
-            border-radius: 16px;
-            border: 1px solid var(--border-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(10, 186, 181, 0.12);
-            color: var(--tiffany);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .service-meta {
-            font-size: 0.85rem;
-            color: var(--tiffany-dark);
-            font-weight: 500;
-        }
-
-        /* Կապ և Ամրագրումներ (Contact & Booking) */
-        .booking-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-            background: var(--white);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 48px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-        }
-
-        .contact-info h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .contact-details {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .contact-details li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-
-        .contact-details span.icon {
-            color: var(--tiffany);
-            font-weight: 600;
-        }
-
-        /* Ամրագրման ձև (Form) */
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 12px 16px;
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--tiffany);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        #booking-status {
-            display: none;
-            padding: 14px;
-            border-radius: 10px;
-            background-color: var(--tiffany-light);
-            color: var(--tiffany-dark);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        /* Ստորին հատված (Footer) */
-        footer {
-            border-top: 1px solid var(--border-light);
-            padding: 36px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Հարմարեցում փոքր էկրաններին (Responsive) */
-        @media (max-width: 860px) {
-            .about-grid,
-            .booking-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .booking-wrapper {
-                padding: 28px;
-            }
-        }
-
-        @media (max-width: 680px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 24px;
-                gap: 20px;
-                border-bottom: 1px solid var(--border-light);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Հոգեբանական Խորհրդատվություն | Անհատական մոտեցում</title>
+  <style>
+    :root {
+      /* Հիմնական ավազագույն ֆոն */
+      --bg-sand: #F7F3EB;
+      --bg-sand-soft: #FBF9F5;
+
+      /* Կապույտի և տիֆֆանիի տարբեր երանգներ բաժինների համար */
+      --hero-sky: #E3F0F5;        /* Գլխավոր բաժնի բաց օվկիանոսային երանգ */
+      --about-tiffany: #DFEFEF;   /* Հոգեբանի մասին՝ մեղմ տիֆֆանի */
+      --services-mist: #E7F2F7;   /* Ծառայությունների բաժին՝ բաց երկնագույն */
+      --card-tiffany: #F2F9F9;    /* Քարտերի նուրբ տիֆֆանի ֆոն */
+      --contact-ocean: #D9EAF2;   /* Կապի բաժին՝ հանգիստ ծովային կապույտ */
+
+      /* Ակցենտներ և CTA */
+      --cta-ocean: #1B5E85;       /* Օվկիանոսի խորը կապույտ CTA-ի համար */
+      --cta-ocean-hover: #134664;
+      --accent-tiffany: #2A8C94;  /* Տիֆֆանի ակցենտ՝ վերնագրերի և նշանների համար */
+
+      /* Տեքստի գույներ */
+      --text-dark: #1E3240;
+      --text-muted: #4C6270;
+      --border-soft: rgba(27, 94, 133, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Armenian", sans-serif;
+      background-color: var(--bg-sand);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Նավիգացիա */
+    header {
+      background-color: rgba(247, 243, 235, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cta-ocean);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .logo span {
+      color: var(--accent-tiffany);
+      font-weight: 500;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-tiffany);
+    }
+
+    /* CTA Կոճակ */
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--cta-ocean);
+      color: #FFFFFF !important;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 18px rgba(27, 94, 133, 0.22);
+    }
+
+    .btn-cta:hover {
+      background-color: var(--cta-ocean-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(27, 94, 133, 0.3);
+    }
+
+    /* Բաժինների ընդհանուր ոճ */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-box {
+      border-radius: 28px;
+      padding: 60px 48px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: rgba(42, 140, 148, 0.12);
+      color: var(--accent-tiffany);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* 1. Գլխավոր բաժին (Hero) */
+    #home .section-box {
+      background: linear-gradient(135deg, var(--hero-sky) 0%, #D9ECEE 100%);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-secondary {
+      color: var(--cta-ocean);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 1.5px solid var(--cta-ocean);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(27, 94, 133, 0.08);
+    }
+
+    .hero-visual {
+      background-color: var(--bg-sand-soft);
+      border-radius: 22px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid rgba(42, 140, 148, 0.2);
+    }
+
+    .hero-visual .quote {
+      font-style: italic;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-visual .caption {
+      font-size: 0.9rem;
+      color: var(--accent-tiffany);
+      font-weight: 600;
+    }
+
+    /* 2. Հոգեբանի մասին */
+    #about .section-box {
+      background-color: var(--about-tiffany);
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .about-photo-placeholder {
+      background: linear-gradient(160deg, #CBE4E6 0%, #B7DAE0 100%);
+      border-radius: 22px;
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--cta-ocean);
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .credentials {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .credential-item {
+      background-color: var(--bg-sand-soft);
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      border-left: 4px solid var(--accent-tiffany);
+    }
+
+    /* 3. Ծառայություններ */
+    #services .section-box {
+      background-color: var(--services-mist);
+    }
+
+    .section-header {
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background-color: var(--card-tiffany);
+      border-radius: 20px;
+      padding: 30px 24px;
+      border: 1px solid rgba(42, 140, 148, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(27, 94, 133, 0.09);
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--cta-ocean);
+    }
+
+    .service-card p {
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+    }
+
+    .service-meta {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent-tiffany);
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    /* 4. Կապի բաժին */
+    #contact .section-box {
+      background: linear-gradient(135deg, var(--contact-ocean) 0%, #DFEFF2 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .contact-details {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-details div {
+      background-color: var(--bg-sand-soft);
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 0.96rem;
+    }
+
+    form {
+      background-color: var(--bg-sand-soft);
+      padding: 32px;
+      border-radius: 22px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    form label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(27, 94, 133, 0.25);
+      background-color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+      border-color: var(--accent-tiffany);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px 48px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Ադապտիվություն հեռախոսների և պլանշետների համար */
+    @media (max-width: 900px) {
+      #home .section-box,
+      #about .section-box,
+      #contact .section-box {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-box {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+
+      .credentials {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-   
-<!-- Գլխավոր նավիգացիա -->
-<header class="main-header">
-    <div class="container">
-        <a href="#home" class="main-logo">Էկա Հորստկա</a>
-
-        <nav class="main-navigation">
-            <a href="#home">Գլխավոր</a>
-            
-            <a href="#about">Հոգեբանի մասին</a>
-            
-            <a href="#services">Ծառայություններ</a>
-            
-            <a href="#booking">Կապ</a>
-            
-        </nav>
+  <!-- Վերին նավիգացիա -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#home" class="logo">Էկա Հորստկա <span>| Հոգեբան</span></a>
+      <nav>
+        <ul>
+          <li><a href="#home">Գլխավոր</a></li>
+          <li><a href="#about">Հոգեբանի մասին</a></li>
+          <li><a href="#services">Ծառայություններ</a></li>
+          <li><a href="#contact" class="btn-cta">Գրանցվել</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 
+  <main class="container">
 
+    <!-- 1. ԳԼԽԱՎՈՐ ԲԱԺԻՆ -->
+    <section id="home">
+      <div class="section-box">
+        <div>
+          <span class="tag">Ապահով և գաղտնի միջավայր</span>
+          <h1>Հանգստություն, ինքնաճանաչում և ներքին հավասարակշռություն</h1>
+          <p>
+            Անհատական հոգեբանական խորհրդատվություն՝ տագնապի, հուզական լարվածության, կյանքի փոփոխությունների և ինքնագնահատականի հետ աշխատելու համար։
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-cta">Ամրագրել հանդիպում</a>
+            <a href="#services" class="btn-secondary">Ծանոթանալ ծառայություններին</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <p class="quote">
+            «Երբ մենք լսում ենք ինքներս մեզ առանց դատելու, սկսվում է իրական փոփոխությունը»։
+          </p>
+          <span class="caption">Առցանց և առկա հանդիպումներ • Երևան</span>
+        </div>
+      </div>
+    </section>
 
-    <!-- 2. Հոգեբանի մասին -->
+    <!-- 2. ՀՈԳԵԲԱՆԻ ՄԱՍԻՆ -->
     <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>Հոգեբանի մասին</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-image-placeholder">
-    <img src="նկար1.png" alt="Հոգեբան">
-</div>
-                <div class="about-content">
-                    <h3>Ողջույն, ես Էկա Հորստկան եմ</h3>
-                    <p>Որպես կլինիկական հոգեբան և հոգեթերապևտ՝ իմ նպատակն է ստեղծել մի տարածք, որտեղ դուք կարող եք լինել անկեղծ՝ առանց քննադատության վախի։</p>
-                    <p>Աշխատանքումս համադրում եմ կոգնիտիվ-վարքաբանական թերապիայի (CBT) և հումանիստական հոգեբանության սկզբունքները՝ օգնելով հաղթահարել տագնապը, սթրեսը, հարաբերությունների ճգնաժամերը և գտնել սեփական ներքին ռեսուրսները։</p>
-                    
-                    <div class="credentials">
-                        <div class="credential-item">
-                            <strong>20+ տարի</strong>
-                            <span>Մասնագիտական փորձ</span>
-                        </div>
-                        <div class="credential-item">
-                            <strong>ԵՊՀ Մագիստրոս</strong>
-                            <span>Կլինիկական հոգեբանություն</span>
-                        </div>
-                        <div class="credential-item">
-                            <strong>CBT / Անհատական</strong>
-                            <span>Հավաստագրված մասնագետ</span>
-                        </div>
-                        <div class="credential-item">
-                            <strong>100% Գաղտնի</strong>
-                            <span>Մասնագիտական էթիկա</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="section-box">
+        <div class="about-photo-placeholder">
+          <!-- Այստեղ կարող եք տեղադրել <img> թեգ՝ Ձեր լուսանկարով -->
+          <span>Ձեր լուսանկարը այստեղ</span>
+          <small style="margin-top: 8px; font-weight: 400;">(Խորհուրդ է տրվում բնական լույսով դիմանկար)</small>
         </div>
+        <div>
+          <span class="tag">Հոգեբանի մասին</span>
+          <h2>Մասնագիտական մոտեցում՝ ջերմությամբ և հարգանքով</h2>
+          <p>
+            Ողջույն, ես Էկան եմ՝ դիպլոմավորված հոգեբան։ Իմ աշխատանքում համադրում եմ գիտականորեն հիմնավորված մեթոդները և մարդկային անկեղծ աջակցությունը՝ օգնելով Ձեզ գտնել ներքին ռեսուրսներ դժվարին իրավիճակներում։
+          </p>
+          <div class="credentials">
+            <div class="credential-item"><strong>Կրթություն․</strong> ԵՊՀ Հոգեբանության ֆակուլտետ</div>
+            <div class="credential-item"><strong>Ուղղություն․</strong> Կոգնիտիվ-վարքաբանական և հումանիստական մոտեցում</div>
+            <div class="credential-item"><strong>Փորձառություն․</strong> Ավելի քան 20 տարվա խորհրդատվական պրակտիկա</div>
+            <div class="credential-item"><strong>Սկզբունք․</strong> 100% գաղտնիություն և էթիկայի պահպանում</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 3. Ծառայություններ -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ծառայություններ</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3>Անհատական խորհրդատվություն</h3>
-                    <p>Աշխատանք տագնապային վիճակների, հուզական այրման, ցածր ինքնագնահատականի և կյանքի բարդ փոփոխությունների հաղթահարման ուղղությամբ։</p>
-                    <div class="service-meta">Տևողությունը՝ 60 րոպե</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">❖</div>
-                    <h3>երեխաների հետ աշխատանք</h3>
-                    <p>այստեղ կգրենք տեքստը</p>
-                    <div class="service-meta">Տևողությունը՝ 60 րոպե</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">✧</div>
-                    <h3>Առցանց խորհրդատվություն</h3>
-                    <p>Ամբողջական հոգեբանական աջակցություն աշխարհի ցանկացած կետից Zoom կամ Google Meet հարթակների միջոցով ձեզ հարմար ժամին։</p>
-                    <div class="service-meta">Տևողությունը՝ 60 րոպե</div>
-                </div>
-            </div>
+    <!-- 3. ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ -->
+    <section id="services">
+      <div class="section-box">
+        <div class="section-header">
+          <span class="tag">Ծառայություններ</span>
+          <h2>Ինչպե՞ս կարող եմ աջակցել Ձեզ</h2>
+          <p>Յուրաքանչյուր հանդիպում հարմարեցվում է Ձեր անհատական կարիքներին և տեմպին։</p>
         </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div>
+              <h3>Անհատական խորհրդատվություն</h3>
+              <p>Աշխատանք տագնապի, սթրեսի, հուզական այրման, վախերի և ինքնավստահության պակասի հետ։</p>
+            </div>
+            <div class="service-meta">Տևողությունը՝ 60 րոպե • Առկա / Առցանց</div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <h3>Հարաբերությունների հոգեբանություն</h3>
+              <p>Միջանձնային կոնֆլիկտների հաղթահարում, անձնական սահմանների ձևավորում և առողջ հաղորդակցություն։</p>
+            </div>
+            <div class="service-meta">Տևողությունը՝ 60 րոպե • Առկա / Առցանց</div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <h3>Ճգնաժամային աջակցություն</h3>
+              <p>Աջակցություն կյանքի կտրուկ փոփոխությունների, կորուստների և բարդ որոշումների կայացման փուլում։</p>
+            </div>
+            <div class="service-meta">Տևողությունը՝ 60 րոպե • Առկա / Առցանց</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 4. Կապ և ամրագրումներ -->
-    <section id="booking">
-        <div class="container">
-            <div class="section-header">
-                <h2>Կապ և ամրագրումներ</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="booking-wrapper">
-                <div class="contact-info">
-                    <h3>Գրանցվեք առաջին հանդիպմանը</h3>
-                    <p>Լրացրեք հայտը, և ես կկապվեմ ձեզ հետ աշխատանքային օրվա ընթացքում՝ հանդիպման վերջնական ժամը հաստատելու համար։</p>
-                    
-                    <ul class="contact-details">
-                        <li><span class="icon">📍</span> ք. Երևան, Աբովյան փողոց (կամ Առցանց)</li>
-                        <li><span class="icon">📞</span> +374 (00) 00-00-00 (WhatsApp / Telegram)</li>
-                        <li><span class="icon">✉️</span> info@psychologist-example.am</li>
-                        <li><span class="icon">🕒</span> Երկուշաբթի – Շաբաթ, 10:00 – 19:00</li>
-                    </ul>
-                </div>
-
-                <form class="booking-form" id="bookingForm">
-                    <div class="form-group">
-                        <label for="name">Անուն Ազգանուն *</label>
-                        <input type="text" id="name" name="name" placeholder="Օրինակ՝ Արամ Պետրոսյան" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Հեռախոսահամար *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+374 XX XX XX XX" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Ծառայության տեսակը</label>
-                            <select id="service" name="service">
-                                <option value="Անհատական խորհրդատվություն">Անհատական խորհրդատվություն</option>
-                                <option value="Զույգերի թերապիա">Զույգերի թերապիա</option>
-                                <option value="Առցանց խորհրդատվություն">Առցանց խորհրդատվություն</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Նախընտրելի օր</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Նախընտրելի ժամ</label>
-                            <select id="time" name="time">
-                                <option value="Առավոտյան (10:00 - 13:00)">Առավոտյան (10:00 - 13:00)</option>
-                                <option value="Ցերեկային (13:00 - 16:00)">Ցերեկային (13:00 - 16:00)</option>
-                                <option value="Երեկոյան (16:00 - 19:00)">Երեկոյան (16:00 - 19:00)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notes">Հավելյալ նշումներ (ըստ ցանկության)</label>
-                        <textarea id="notes" name="notes" rows="3" placeholder="Կարող եք համառոտ նշել ձեր հարցը..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-primary">Ուղարկել հայտը</button>
-                    <div id="booking-status">Շնորհակալություն։ Ձեր ամրագրման հայտն ընդունված է, շուտով կապ կհաստատենք ձեզ հետ։</div>
-                </form>
-            </div>
+    <!-- 4. ԿԱՊԻ ԲԱԺԻՆ -->
+    <section id="contact">
+      <div class="section-box">
+        <div>
+          <span class="tag">Կապ</span>
+          <h2>Կատարեք առաջին քայլը դեպի հանգստություն</h2>
+          <p>
+            Լրացրեք հայտը կամ կապվեք ինձ հետ հարմար եղանակով։ Ես կպատասխանեմ 24 ժամվա ընթացքում հանդիպման օրն ու ժամը համաձայնեցնելու համար։
+          </p>
+          <div class="contact-details">
+            <div><strong>Հեռախոս / WhatsApp / Telegram․</strong> +374 (00) 00-00-00</div>
+            <div><strong>Էլ․ փոստ․</strong> info@psychologist-example.am</div>
+            <div><strong>Հասցե․</strong> ք․ Երևան (և առցանց՝ ամբողջ աշխարհից)</div>
+          </div>
         </div>
+
+        <form action="#" method="POST">
+          <div>
+            <label for="name">Ձեր անունը</label>
+            <input type="text" id="name" name="name" placeholder="Օրինակ՝ Մարիամ" required />
+          </div>
+          <div>
+            <label for="phone">Հեռախոսահամար կամ Telegram</label>
+            <input type="text" id="phone" name="phone" placeholder="+374 ..." required />
+          </div>
+          <div>
+            <label for="format">Նախընտրելի ձևաչափը</label>
+            <select id="format" name="format">
+              <option value="online">Առցանց (Zoom / Google Meet)</option>
+              <option value="offline">Առկա հանդիպում (Երևան)</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Հակիրճ նշում (ըստ ցանկության)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Ի՞նչ հարցով կցանկանայիք դիմել..."></textarea>
+          </div>
+          <button type="submit" class="btn-cta">Ուղարկել հայտը</button>
+        </form>
+      </div>
     </section>
 
-    <!-- Ստորին հատված -->
-    <footer>
-        <div class="container">
-            <p>© 2026 Էկա Հորստկա։ Բոլոր իրավունքները պաշտպանված են։</p>
-        </div>
-    </footer>
+  </main>
 
-    <!-- Ինտերակտիվության համար JavaScript -->
-    <script>
-        // Մոբայլ մենյուի բացում/փակում
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+  <footer>
+    <p>© 2026 Հոգեբանական Խորհրդատվություն • Բոլոր իրավունքները պաշտպանված են</p>
+  </footer>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Հղման վրա սեղմելիս փակել մոբայլ մենյուն
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Ամրագրման ֆորմայի մշակում
-        const bookingForm = document.getElementById('bookingForm');
-        const bookingStatus = document.getElementById('booking-status');
-
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            bookingStatus.style.display = 'block';
-            bookingForm.reset();
-            
-            setTimeout(() => {
-                bookingStatus.style.display = 'none';
-            }, 6000);
-        });
-    </script>
 </body>
-</html>
+</html>    
